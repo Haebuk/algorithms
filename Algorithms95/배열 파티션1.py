@@ -16,12 +16,6 @@ def arrayPairSum(nums):
 
   return sum
 
-import time
-start = time.time()
-nums = [1, 4, 3, 2]
-print(arrayPairSum(nums))
-print(time.time() - start)
-
 # 풀이 2. 짝수 번째 값 계산
 def arrayPairSum(nums):
   sum = 0
@@ -34,10 +28,13 @@ def arrayPairSum(nums):
 
   return sum
 
+# 풀이 3. 파이썬다운 방식
+def arrayPairSum(nums):
+  return sum(sorted(nums)[::2])
+
+
 import time
 start = time.time()
 nums = [1, 4, 3, 2]
 print(arrayPairSum(nums))
 print(time.time() - start)
-
-# 
