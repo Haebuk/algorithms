@@ -16,5 +16,28 @@ def arrayPairSum(nums):
 
   return sum
 
+import time
+start = time.time()
 nums = [1, 4, 3, 2]
 print(arrayPairSum(nums))
+print(time.time() - start)
+
+# 풀이 2. 짝수 번째 값 계산
+def arrayPairSum(nums):
+  sum = 0
+  nums.sort()
+
+  for i, n in enumerate(nums):
+    # 짝수 번째 값의 합 계산
+    if i % 2 == 0:
+      sum += n
+
+  return sum
+
+import time
+start = time.time()
+nums = [1, 4, 3, 2]
+print(arrayPairSum(nums))
+print(time.time() - start)
+
+# 
