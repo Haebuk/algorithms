@@ -3,6 +3,7 @@
 [1. Greedy Algorithm(탐욕법)](#greedy-algorithm)
 
 [팀노트](#팀노트)
+
 ## Greedy Algorithm
 - 현재 상황에서 지금 당장 좋은 것만 고르는 방법
 - 정당성 분석이 중요함
@@ -70,4 +71,26 @@ def rotate_a_matrix_by_90_degree(a):
         for j in range(m):
             result[j][n - i - 1] = a[i][j]
     return result
- ```
+```
+
+### BFS
+
+- 간선 길이 1일 때 BFS쓰면 좋음
+
+- 간선 길이 1인 그래프 그리기
+
+  ```python
+  for _ in range(m):
+      a, b = map(int, input().split())
+      graph[a].append(b)
+      
+      4 4 2 1
+      1 2
+      1 3
+      2 3
+      2 4
+      
+  >> graph = [[], [2, 3], [3, 4], [], []]
+  ```
+
+  
