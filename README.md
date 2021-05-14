@@ -54,3 +54,16 @@ print(result)
 ```
 - 정당성 분석: N의 값을 줄일 때 __2 이상의 수로 나누는 작업이 1을 빼는 작업보다__ 수를 훨씬 많이 줄일 수 있다.
   - 또한 N은 양의 정수이므로 항상 1에 도달하게 된다. (최적해 성립)
+
+## 팀노트
+### 2차원 리스트 90도 회전
+```python
+def rotate_a_matrix_by_90_degree(a):
+    n = len(a)  # 행 길이 계산
+    m = len(a[0])  # 열 길이 계산
+    result = [[0] * n for _ in range(m)]  # 결과 리스트
+    for i in range(n):
+        for j in range(m):
+            result[j][n - i - 1] = a[i][j]
+    return result
+ ```
