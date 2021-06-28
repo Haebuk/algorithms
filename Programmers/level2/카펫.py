@@ -1,12 +1,13 @@
 def solution(brown, yellow):
-    width, height = 0, 0
-    line = 1
-    
-    while True:
-        if 2 * line + 2 * (yellow + 2) == brown:
-            width = yellow + 2
-            height = line + 2
-            break
-        yellow /= 2
-        line *= 2
-        return [width, height]
+
+    for height in range(1, int(yellow/2)+1):
+        if yellow % height != 0: # height가 yellow의 약수가 아닌 경우
+            continue
+            
+        else: # 약수인 경우
+            width = yellow / height
+            
+        if (width + 2) * 2 + (height * 2) == brown:
+            return [width+2, height+2]
+        
+    return [3,3] # yellow가 1인 경우

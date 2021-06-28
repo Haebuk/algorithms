@@ -1,21 +1,13 @@
-from collections import deque
-
 def solution(prices):
     
-    answer = []
-    start = 0
+    answer = [0] * len(prices)
     
-    for _ in range(len(prices)):
-        sec = 0
-        q = deque(prices[start:])
-        a = q.popleft()
-        while q:
-            sec += 1
-            if a <= q[0]:
-                q.popleft()        
+    for i in range(len(prices)-1):
+        for j in range(i+1, len(prices)):
+            if prices[i] <= prices[j]:
+                answer[i] += 1
             else:
+                answer[i] += 1 # 가격 한 번은 유지됨
                 break
-            
-        start += 1
-        answer.append(sec)
+    
     return answer
