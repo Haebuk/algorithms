@@ -1,13 +1,4 @@
 from collections import deque
-def dfs(x, count):
-    visited[x] = True
-    for i in graph[x]:
-        if not visited[i]:
-            dfs(i, count+1)
-    result.append(count)
-    
-count = 0
-result = []
 graph = [
     [],
     [2,3],
@@ -15,8 +6,21 @@ graph = [
     [],
     []
 ]
-n = len(graph)
-visited = [False] * n
-dfs(1,count)
-print(result)
-
+distance = [-1] * 5
+count = 1
+q = deque()
+q.append(1)
+distance[1] = 0
+while q:
+    x = q.popleft()
+    for i in graph[x]:
+        if distance[i] == -1:
+            distance[i] = distance[x] + 1
+        q.append(i)
+distance.sort()
+for i, d in enumerate(distance):
+    if d == 2:
+        print(i)
+if 2 not in distance:
+    print(-1)
+    
